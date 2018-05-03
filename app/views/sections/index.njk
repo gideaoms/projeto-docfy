@@ -1,0 +1,21 @@
+{% extends 'projects/show.njk' %}
+
+{% block section %}
+
+<article>
+  <div class="project-header">
+    <h1>{{ section.title }}</h1>
+    {% if edit %}
+      <a href="/projects/{{ project.id }}/sections/{{ section.id }}/edit" class="primary">Editar seção</a>
+    {% else %}
+      <form action="/projects/{{ project.id }}/sections/{{ section.id }}?_method=DELETE" method="post">
+        <button type="submit" class="danger">Remover seção</button>
+      </form>
+    {% endif %}
+  </div>
+
+  {% block content %}{% endblock %}
+
+</article>
+
+{% endblock %}
